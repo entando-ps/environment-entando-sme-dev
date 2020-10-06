@@ -1,0 +1,7 @@
+dependencies:
+- host: github.com
+  owner: entando-ps
+  repo: sme-task-tracker
+  url: https://github.com/entando-ps/sme-task-tracker.git
+  version: ""
+  versionURL: ""
