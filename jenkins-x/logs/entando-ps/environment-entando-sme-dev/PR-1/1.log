@@ -1,0 +1,50 @@
+
+Showing logs for build [32mentando-ps-environment-entando-g9fdn-1[0m stage [32mpr-checks[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1601986301.3867443,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32mentando-ps-environment-entando-g9fdn-1[0m stage [32mpr-checks[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32mentando-ps-environment-entando-g9fdn-1[0m stage [32mpr-checks[0m and container [32mplace-tools[0m
+
+Showing logs for build [32mentando-ps-environment-entando-g9fdn-1[0m stage [32mpr-checks[0m and container [32mstep-git-source-entando-ps-environment-entando-g9fdn-qn4g5[0m
+{"level":"info","ts":1601986311.6424644,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/entando-ps/environment-entando-sme-dev.git @ master in path /workspace/source"}
+{"level":"warn","ts":1601986311.642662,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1601986311.7198648,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32mentando-ps-environment-entando-g9fdn-1[0m stage [32mpr-checks[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32mentando-ps-environment-entando-g9fdn-1[0m stage [32mpr-checks[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:a4fdd96a1bca545e712db73c8278e5c529f56f90,1:84e5fceb16cbeea09f4c029973bc16f738cb20ae
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git fetch origin --unshallow 84e5fceb16cbeea09f4c029973bc16f738cb20ae: a4fdd96a1bca545e712db73c8278e5c529f56f90:
+DEBUG: ran git fetch --unshallow origin 84e5fceb16cbeea09f4c029973bc16f738cb20ae: a4fdd96a1bca545e712db73c8278e5c529f56f90: in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git branch
+DEBUG: JX_LOG_LEVEL=error LC_ALL=C git checkout master
+DEBUG: ran git checkout master in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git reset --hard a4fdd96a1bca545e712db73c8278e5c529f56f90
+DEBUG: ran git reset --hard a4fdd96a1bca545e712db73c8278e5c529f56f90 in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git clean -fd .
+DEBUG: ran clean --force -d . in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git merge 84e5fceb16cbeea09f4c029973bc16f738cb20ae
+DEBUG: ran git merge 84e5fceb16cbeea09f4c029973bc16f738cb20ae in 
+DEBUG: LC_ALL=C JX_LOG_LEVEL=error git log --format=%H%x1f%an%x1f%ae%x1f%cn%x1f%ce%x1f%s%n%b%x1e a4fdd96a1bca545e712db73c8278e5c529f56f90..HEAD
+Merged SHA 84e5fceb16cbeea09f4c029973bc16f738cb20ae with commit message 'chore(deps): bump https://github.com/entando-ps/sme-task-tracker.git' into base branch master
+
+Showing logs for build [32mentando-ps-environment-entando-g9fdn-1[0m stage [32mpr-checks[0m and container [32mstep-verify-parameters[0m
+error: resolve the secrets URIs: replacing secrets URIs: replacing vault paths in *****User:
+  password: local:entando-sme/*****User:password
+  username: *****
+docker:
+  email: entando.build.user@gmail.com
+  password: local:entando-sme/docker:password
+  url: https://index.*********/v1/
+  username: ****************
+enableDocker: true
+pipelineUser:
+  email: entando.build.user@gmail.com
+  token: local:entando-sme/pipelineUser:token
+  username: **********
+prow:
+  hmacToken: local:entando-sme/prow:hmacToken
+: unable to find "password" in secret at "entando-sme/*****User"
+[31m
+Pipeline failed on stage 'pr-checks' : container 'step-verify-parameters'. The execution of the pipeline has stopped.[0m
