@@ -1,0 +1,21 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: entando-ps
+    provider: github
+    repository: sme-edo-user-bundle
+  name: entando-ps-sme-edo-user-bundle
+spec:
+  description: Imported application for entando-ps/sme-edo-user-bundle
+  httpCloneURL: https://github.com/entando-ps/sme-edo-user-bundle.git
+  org: entando-ps
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: sme-edo-user-bundle
+  scheduler:
+    kind: ""
+    name: ""
+  url: https://github.com/entando-ps/sme-edo-user-bundle.git

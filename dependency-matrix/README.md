@@ -2,4 +2,4 @@
 
 Dependency | Sources | Version | Mismatched versions
 ---------- | ------- | ------- | -------------------
-[entando-ps/sme-task-tracker](https://github.com/entando-ps/sme-task-tracker.git) |  | []() | 
+[entando-ps/sme-edo-user-bundle](https://github.com/entando-ps/sme-edo-user-bundle.git) |  | []() | 
