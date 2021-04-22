@@ -1,0 +1,142 @@
+branch-protection:
+  orgs:
+    entando-ps:
+      repos:
+        environment-entando-sme-dev:
+          required_status_checks:
+            contexts:
+            - promotion-build
+        environment-entando-sme-production:
+          required_status_checks:
+            contexts:
+            - promotion-build
+        environment-entando-sme-staging:
+          required_status_checks:
+            contexts:
+            - promotion-build
+        sme-edo-user-bundle:
+          required_status_checks:
+            contexts:
+            - pr-build
+        sme-task-tracker:
+          required_status_checks:
+            contexts:
+            - pr-build
+  protect-tested-repos: true
+github:
+  LinkURL: null
+plank: {}
+pod_namespace: jx
+postsubmits:
+  entando-ps/environment-entando-sme-dev:
+  - agent: tekton
+    branches:
+    - master
+    name: promotion
+    skip_report: true
+  entando-ps/environment-entando-sme-production:
+  - agent: tekton
+    branches:
+    - master
+    name: promotion
+    skip_report: true
+  entando-ps/environment-entando-sme-staging:
+  - agent: tekton
+    branches:
+    - master
+    name: promotion
+    skip_report: true
+  entando-ps/sme-edo-user-bundle:
+  - agent: tekton
+    branches:
+    - master
+    name: release
+    run_if_changed: \.java$|\.properties$|\.xml$
+    skip_report: true
+  entando-ps/sme-task-tracker:
+  - agent: tekton
+    branches:
+    - master
+    name: release
+    skip_report: true
+presubmits:
+  entando-ps/environment-entando-sme-dev:
+  - agent: tekton
+    always_run: true
+    context: promotion-build
+    name: promotion-build
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(\s+|$)
+  entando-ps/environment-entando-sme-production:
+  - agent: tekton
+    always_run: true
+    context: promotion-build
+    name: promotion-build
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(\s+|$)
+  entando-ps/environment-entando-sme-staging:
+  - agent: tekton
+    always_run: true
+    context: promotion-build
+    name: promotion-build
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(\s+|$)
+  entando-ps/sme-edo-user-bundle:
+  - agent: tekton
+    always_run: true
+    context: pr-build
+    name: pr-build
+    rerun_command: /test this
+    run_if_changed: \.java$|\.properties$|\.xml$
+    trigger: (?m)^/test( all| this),?(\s+|$)
+  entando-ps/sme-task-tracker:
+  - agent: tekton
+    always_run: true
+    context: pr-build
+    name: pr-build
+    rerun_command: /test this
+    trigger: (?m)^/test( all| this),?(\s+|$)
+prowjob_namespace: jx
+push_gateway:
+  serve_metrics: false
+tide:
+  context_options:
+    from-branch-protection: true
+    required-if-present-contexts: null
+    skip-unknown-contexts: false
+  merge_method:
+    entando-ps/environment-entando-sme-dev: merge
+    entando-ps/environment-entando-sme-production: merge
+    entando-ps/environment-entando-sme-staging: merge
+    entando-ps/sme-edo-user-bundle: merge
+    entando-ps/sme-task-tracker: merge
+  queries:
+  - labels:
+    - approved
+    missingLabels:
+    - do-not-merge
+    - do-not-merge/hold
+    - do-not-merge/work-in-progress
+    - needs-ok-to-test
+    - needs-rebase
+    repos:
+    - entando-ps/environment-entando-sme-dev
+    - entando-ps/environment-entando-sme-production
+    - entando-ps/environment-entando-sme-staging
+    - entando-ps/sme-edo-user-bundle
+    - entando-ps/sme-task-tracker
+  - labels:
+    - updatebot
+    missingLabels:
+    - do-not-merge
+    - do-not-merge/hold
+    - do-not-merge/work-in-progress
+    - needs-ok-to-test
+    - needs-rebase
+    repos:
+    - entando-ps/environment-entando-sme-dev
+    - entando-ps/environment-entando-sme-production
+    - entando-ps/environment-entando-sme-staging
+    - entando-ps/sme-edo-user-bundle
+    - entando-ps/sme-task-tracker
+  target_url: http://deck-jx.sme.entando.org
