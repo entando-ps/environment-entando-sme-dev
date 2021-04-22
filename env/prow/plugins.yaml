@@ -1,0 +1,144 @@
+approve:
+- lgtm_acts_as_approve: true
+  repos:
+  - entando-ps/environment-entando-sme-dev
+  require_self_approval: true
+- lgtm_acts_as_approve: true
+  repos:
+  - entando-ps/environment-entando-sme-production
+  require_self_approval: true
+- lgtm_acts_as_approve: true
+  repos:
+  - entando-ps/environment-entando-sme-staging
+  require_self_approval: true
+- lgtm_acts_as_approve: true
+  repos:
+  - entando-ps/sme-edo-user-bundle
+  require_self_approval: true
+- lgtm_acts_as_approve: true
+  repos:
+  - entando-ps/sme-task-tracker
+  require_self_approval: true
+cat: {}
+cherry_pick_unapproved: {}
+config_updater:
+  gzip: false
+  maps:
+    env/prow/config.yaml:
+      name: config
+    env/prow/plugins.yaml:
+      name: plugins
+heart: {}
+label:
+  additional_labels: null
+owners: {}
+plugins:
+  entando-ps/environment-entando-sme-dev:
+  - config-updater
+  - approve
+  - assign
+  - blunderbuss
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - size
+  - trigger
+  - wip
+  - heart
+  - cat
+  - override
+  - dog
+  - pony
+  entando-ps/environment-entando-sme-production:
+  - config-updater
+  - approve
+  - assign
+  - blunderbuss
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - size
+  - trigger
+  - wip
+  - heart
+  - cat
+  - override
+  - dog
+  - pony
+  entando-ps/environment-entando-sme-staging:
+  - config-updater
+  - approve
+  - assign
+  - blunderbuss
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - size
+  - trigger
+  - wip
+  - heart
+  - cat
+  - override
+  - dog
+  - pony
+  entando-ps/sme-edo-user-bundle:
+  - approve
+  - assign
+  - blunderbuss
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - override
+  - size
+  - trigger
+  - wip
+  - heart
+  - cat
+  - dog
+  - pony
+  entando-ps/sme-task-tracker:
+  - approve
+  - assign
+  - blunderbuss
+  - help
+  - hold
+  - lgtm
+  - lifecycle
+  - override
+  - size
+  - trigger
+  - wip
+  - heart
+  - cat
+  - dog
+  - pony
+requiresig: {}
+sigmention: {}
+size:
+  l: 0
+  m: 0
+  s: 0
+  xl: 0
+  xxl: 0
+triggers:
+- repos:
+  - entando-ps/environment-entando-sme-dev
+  trusted_org: entando-ps
+- repos:
+  - entando-ps/environment-entando-sme-production
+  trusted_org: entando-ps
+- repos:
+  - entando-ps/environment-entando-sme-staging
+  trusted_org: entando-ps
+- repos:
+  - entando-ps/sme-edo-user-bundle
+  trusted_org: entando-ps
+- repos:
+  - entando-ps/sme-task-tracker
+  trusted_org: entando-ps
+welcome:
+- message_template: Welcome
