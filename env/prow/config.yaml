@@ -51,7 +51,7 @@ postsubmits:
     branches:
     - master
     name: release
-    run_if_changed: \.java$|\.properties$|\.xml$
+    run_if_changed: java$|properties$|xml$
     skip_report: true
   entando-ps/sme-task-tracker:
   - agent: tekton
@@ -87,7 +87,7 @@ presubmits:
     context: pr-build
     name: pr-build
     rerun_command: /test this
-    run_if_changed: \.java$|\.properties$|\.xml$
+    run_if_changed: java$|properties$|xml$
     trigger: (?m)^/test( all| this),?(\s+|$)
   entando-ps/sme-task-tracker:
   - agent: tekton
