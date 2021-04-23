@@ -1,0 +1,21 @@
+apiVersion: jenkins.io/v1
+kind: SourceRepository
+metadata:
+  creationTimestamp: null
+  labels:
+    owner: entando-ps
+    provider: github
+    repository: sme-task-tracker
+  name: entando-ps-sme-task-tracker
+spec:
+  description: Imported application for entando-ps/sme-task-tracker
+  httpCloneURL: https://github.com/entando-ps/sme-task-tracker.git
+  org: entando-ps
+  provider: https://github.com
+  providerKind: github
+  providerName: github
+  repo: sme-task-tracker
+  scheduler:
+    kind: ""
+    name: ""
+  url: https://github.com/entando-ps/sme-task-tracker.git
