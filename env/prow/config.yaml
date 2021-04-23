@@ -83,7 +83,7 @@ presubmits:
     trigger: (?m)^/test( all| this),?(\s+|$)
   entando-ps/sme-edo-user-bundle:
   - agent: tekton
-    always_run: true
+    always_run: false
     context: pr-build
     name: pr-build
     rerun_command: /test this
